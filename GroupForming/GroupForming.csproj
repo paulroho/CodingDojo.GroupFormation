@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Group.cs" />
     <Compile Include="GroupFormer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -32,25 +32,4 @@ namespace GroupForming
 
         public IList<Group> Groups { get { return _groups; } }
     }
-
-    public class Group
-    {
-        private readonly List<string> _members = new List<string>();
-
-        public Group()
-        {
-        }
-
-        public Group(IEnumerable<string> members)
-        {
-            _members.AddRange(members);
-        }
-
-        public IList<string> Members { get { return _members; } }
-
-        public void AddMember(string member)
-        {
-            _members.Add(member);
-        }
-    }
 }
