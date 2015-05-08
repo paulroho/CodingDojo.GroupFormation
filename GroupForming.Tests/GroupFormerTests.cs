@@ -20,10 +20,10 @@ namespace GroupForming.Tests
         {
             _fixture = new Fixture();
             _former = new GroupFormer();
-            _member1 = _fixture.Create("Member");
-            _member2 = _fixture.Create("Member");
-            _member3 = _fixture.Create("Member");
-            _member4 = _fixture.Create("Member");
+            _member1 = _fixture.Create("Member1_");
+            _member2 = _fixture.Create("Member2_");
+            _member3 = _fixture.Create("Member3_");
+            _member4 = _fixture.Create("Member4_");
         }
 
         [TestMethod]
@@ -35,8 +35,10 @@ namespace GroupForming.Tests
             // Act
             _former.Shuffle();
 
-            _former.Groups.Should().HaveCount(1, "there should be just a single group");
-            _former.Groups.First().Members.ShouldAllBeEquivalentTo(new[] { _member1, _member2 });
+            _former.Groups.ShouldAllBeEquivalentTo(new[]
+            {
+                new Group(_member1, _member2)
+            });
         }
 
         [TestMethod]
@@ -52,8 +54,9 @@ namespace GroupForming.Tests
 
             _former.Groups.Should().HaveCount(2, "there should be two groups");
             _former.Groups.Should().OnlyContain(g => g.Members.Count() == 2, "every group should have 2 members");
-            var allMembersOfAllGroups = _former.Groups.First().Members.Union(_former.Groups.Last().Members);
-            allMembersOfAllGroups.ShouldAllBeEquivalentTo(new[] { _member1, _member2, _member3, _member4 });
+
+            _former.Groups.AllMembersAggregated()
+                .ShouldAllBeEquivalentTo(new[] {_member1, _member2, _member3, _member4});
         }
     }
 }
