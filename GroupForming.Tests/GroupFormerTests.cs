@@ -8,45 +8,52 @@ namespace GroupForming.Tests
     [TestClass]
     public class GroupFormerTests
     {
+        Fixture _fixture;
+        GroupFormer _former;
+        string _member1;
+        string _member2;
+        string _member3;
+        string _member4;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _fixture = new Fixture();
+            _former = new GroupFormer();
+            _member1 = _fixture.Create("Member");
+            _member2 = _fixture.Create("Member");
+            _member3 = _fixture.Create("Member");
+            _member4 = _fixture.Create("Member");
+        }
+
         [TestMethod]
         public void Shuffle_WithMembersForJustOneGroup_GivesASingleGroupContainingAllMembers()
         {
-            var fixture = new Fixture();
-            var member1 = fixture.Create("Member");
-            var member2 = fixture.Create("Member");
-            var former = new GroupFormer();
-            former.AddMember(member1);
-            former.AddMember(member2);
+            _former.AddMember(_member1);
+            _former.AddMember(_member2);
 
             // Act
-            former.Shuffle();
+            _former.Shuffle();
 
-            former.Groups.Should().HaveCount(1, "there should be just a single group");
-            former.Groups.First().Members.ShouldAllBeEquivalentTo(new[] { member1, member2 });
+            _former.Groups.Should().HaveCount(1, "there should be just a single group");
+            _former.Groups.First().Members.ShouldAllBeEquivalentTo(new[] { _member1, _member2 });
         }
 
         [TestMethod]
         public void Shuffle_WithMembersForTwoGroups_GivesTwoProperlySizedGroupsContainingAllMembers()
         {
-            var fixture = new Fixture();
-            var member1 = fixture.Create("Member");
-            var member2 = fixture.Create("Member");
-            var member3 = fixture.Create("Member");
-            var member4 = fixture.Create("Member");
-
-            var former = new GroupFormer();
-            former.AddMember(member1);
-            former.AddMember(member2);
-            former.AddMember(member3);
-            former.AddMember(member4);
+            _former.AddMember(_member1);
+            _former.AddMember(_member2);
+            _former.AddMember(_member3);
+            _former.AddMember(_member4);
 
             // Act
-            former.Shuffle();
+            _former.Shuffle();
 
-            former.Groups.Should().HaveCount(2, "there should be two groups");
-            former.Groups.Should().OnlyContain(g => g.Members.Count() == 2, "every group should have 2 members");
-            var allMembersOfAllGroups = former.Groups.First().Members.Union(former.Groups.Last().Members);
-            allMembersOfAllGroups.ShouldAllBeEquivalentTo(new[] { member1, member2, member3, member4 });
+            _former.Groups.Should().HaveCount(2, "there should be two groups");
+            _former.Groups.Should().OnlyContain(g => g.Members.Count() == 2, "every group should have 2 members");
+            var allMembersOfAllGroups = _former.Groups.First().Members.Union(_former.Groups.Last().Members);
+            allMembersOfAllGroups.ShouldAllBeEquivalentTo(new[] { _member1, _member2, _member3, _member4 });
         }
     }
 }
