@@ -12,8 +12,8 @@ namespace GroupForming.Tests
         public void Shuffle_WithMembersForJustOneGroup_GivesASingleGroupContainingAllMembers()
         {
             var fixture = new Fixture();
-            var member1 = fixture.Create<string>("Member");
-            var member2 = fixture.Create<string>("Member");
+            var member1 = fixture.Create("Member");
+            var member2 = fixture.Create("Member");
             var former = new GroupFormer();
             former.AddMember(member1);
             former.AddMember(member2);
@@ -29,10 +29,10 @@ namespace GroupForming.Tests
         public void Shuffle_WithMembersForTwoGroups_GivesTwoProperlySizedGroupsContainingAllMembers()
         {
             var fixture = new Fixture();
-            var member1 = fixture.Create<string>("Member");
-            var member2 = fixture.Create<string>("Member");
-            var member3 = fixture.Create<string>("Member");
-            var member4 = fixture.Create<string>("Member");
+            var member1 = fixture.Create("Member");
+            var member2 = fixture.Create("Member");
+            var member3 = fixture.Create("Member");
+            var member4 = fixture.Create("Member");
 
             var former = new GroupFormer();
             former.AddMember(member1);
