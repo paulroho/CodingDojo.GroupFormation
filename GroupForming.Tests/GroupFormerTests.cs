@@ -28,11 +28,17 @@ namespace GroupForming.Tests
         [TestMethod]
         public void Shuffle_WithMembersForTwoGroups_GivesTwoProperlySizedGroupsContainingAllMembers()
         {
+            var fixture = new Fixture();
+            var member1 = fixture.Create<string>("Member");
+            var member2 = fixture.Create<string>("Member");
+            var member3 = fixture.Create<string>("Member");
+            var member4 = fixture.Create<string>("Member");
+
             var former = new GroupFormer();
-            former.AddMember("Sepp");
-            former.AddMember("Otto");
-            former.AddMember("Karl");
-            former.AddMember("Susi");
+            former.AddMember(member1);
+            former.AddMember(member2);
+            former.AddMember(member3);
+            former.AddMember(member4);
 
             // Act
             former.Shuffle();
@@ -40,7 +46,7 @@ namespace GroupForming.Tests
             former.Groups.Should().HaveCount(2, "there should be two groups");
             former.Groups.Should().OnlyContain(g => g.Members.Count() == 2, "every group should have 2 members");
             var allMembersOfAllGroups = former.Groups.First().Members.Union(former.Groups.Last().Members);
-            allMembersOfAllGroups.ShouldAllBeEquivalentTo(new[] {"Sepp", "Otto", "Karl", "Susi"});
+            allMembersOfAllGroups.ShouldAllBeEquivalentTo(new[] { member1, member2, member3, member4 });
         }
     }
 }
