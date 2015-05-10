@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace GroupForming
 {
-    public class GroupFormer
+    public class GroupShuffler
     {
         private readonly IList<string> _members = new List<string>();
         private readonly IList<Group> _groups = new List<Group>();
