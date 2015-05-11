@@ -9,12 +9,13 @@ namespace GroupForming.MSpecs
     {
         Establish context = () =>
         {
-            Fixture = new Fixture();
+            var fixture = new Fixture();
+            Member1 = fixture.Create("Member1_");
+            Member2 = fixture.Create("Member2_");
+            Member3 = fixture.Create("Member2_");
+            Member4 = fixture.Create("Member2_");
+
             Shuffler = new GroupShuffler();
-            Member1 = Fixture.Create("Member1_");
-            Member2 = Fixture.Create("Member2_");
-            Member3 = Fixture.Create("Member2_");
-            Member4 = Fixture.Create("Member2_");
             Shuffler.AddMember(Member1);
             Shuffler.AddMember(Member2);
             Shuffler.AddMember(Member3);
@@ -30,11 +31,11 @@ namespace GroupForming.MSpecs
                 Shuffler.Groups.AllMembersAggregated()
                     .ShouldAllBeEquivalentTo(new[] {Member1, Member2, Member3, Member4});
 
-        private static Fixture Fixture { get; set; }
-        private static GroupShuffler Shuffler { get; set; }
         private static string Member1 { get; set; }
         private static string Member2 { get; set; }
         private static string Member3 { get; set; }
         private static string Member4 { get; set; }
+
+        private static GroupShuffler Shuffler { get; set; }
     }
 }
