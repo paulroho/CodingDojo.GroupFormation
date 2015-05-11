@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupForming", "GroupFormin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupForming.Tests", "GroupForming.Tests\GroupForming.Tests.csproj", "{369DC1BC-F1EE-4326-B227-4941664AC8FC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{25FA1382-F074-4259-956F-28CE6DB68420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupForming.MSpecs", "GroupForming.MSpecs\GroupForming.MSpecs.csproj", "{0009DA18-493A-4DC7-B321-0E785ABA29AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,10 @@ Global
 		{369DC1BC-F1EE-4326-B227-4941664AC8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{369DC1BC-F1EE-4326-B227-4941664AC8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{369DC1BC-F1EE-4326-B227-4941664AC8FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0009DA18-493A-4DC7-B321-0E785ABA29AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0009DA18-493A-4DC7-B321-0E785ABA29AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0009DA18-493A-4DC7-B321-0E785ABA29AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0009DA18-493A-4DC7-B321-0E785ABA29AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
