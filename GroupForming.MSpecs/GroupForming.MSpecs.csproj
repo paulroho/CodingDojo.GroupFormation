@@ -59,8 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GroupsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shuffling_with_members_for_just_one_group.cs" />
+    <Compile Include="Shuffling_with_members_for_two_groups.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
