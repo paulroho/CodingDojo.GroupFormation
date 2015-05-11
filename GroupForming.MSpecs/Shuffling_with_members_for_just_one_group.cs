@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Collections.Generic;
+using FluentAssertions;
 using Machine.Specifications;
 using Ploeh.AutoFixture;
 
@@ -10,28 +11,19 @@ namespace GroupForming.MSpecs
         Establish context = () =>
         {
             var fixture = new Fixture();
-            Member1 = fixture.Create("Member1_");
-            Member2 = fixture.Create("Member2_");
+            Members = fixture.CreateMany("Member_", 2);
 
             Shuffler = new GroupShuffler();
-            Shuffler.AddMember(Member1);
-            Shuffler.AddMember(Member2);
+            Shuffler.AddMembers(Members);
         };
 
         Because of = () => Shuffler.Shuffle();
 
         It should_give_a_single_group = () => Shuffler.Groups.Should().HaveCount(1);
 
-        It should_put_all_members_into_that_group = () =>
-        {
-            var members = Shuffler.Groups[0].Members;
-            members.Should().Contain(Member1);
-            members.Should().Contain(Member2);
-        };
+        It should_put_all_members_into_that_group = () => Shuffler.Groups[0].Members.ShouldAllBeEquivalentTo(Members);
 
-        private static string Member1 { get; set; }
-        private static string Member2 { get; set; }
-
+        private static IEnumerable<string> Members { get; set; }
         private static GroupShuffler Shuffler { get; set; }
     }
 }

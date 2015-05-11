@@ -5,12 +5,17 @@ namespace GroupForming
 {
     public class GroupShuffler
     {
-        private readonly IList<string> _members = new List<string>();
+        private readonly List<string> _members = new List<string>();
         private readonly IList<Group> _groups = new List<Group>();
 
         public void AddMember(string member)
         {
             _members.Add(member);
+        }
+
+        public void AddMembers(IEnumerable<string> members)
+        {
+            _members.AddRange(members);
         }
 
         public void Shuffle()
