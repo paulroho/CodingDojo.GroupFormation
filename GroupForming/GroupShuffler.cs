@@ -20,6 +20,7 @@ namespace GroupForming
 
         public void Shuffle()
         {
+            _groups.Clear();
             int i = 0;
             Group group = null;
             foreach (var member in _members)
