@@ -7,6 +7,7 @@ namespace GroupForming
     {
         private readonly List<string> _members = new List<string>();
         private readonly IList<Group> _groups = new List<Group>();
+        private int _offset = 0;
 
         public void AddMember(string member)
         {
@@ -21,19 +22,19 @@ namespace GroupForming
         public void Shuffle()
         {
             _groups.Clear();
-            int i = 0;
             Group group = null;
-            foreach (var member in _members)
+            for (var i = 0; i < _members.Count; i++)
             {
-                if (i % 2 == 0)
+                var member = _members[(i + _offset) % _members.Count];
+                if (i%2 == 0)
                 {
                     group = new Group();
                     _groups.Add(group);
                 }
                 Debug.Assert(group != null, "The group has not be initialized.");
                 group.AddMember(member);
-                i++;
             }
+            _offset++;
         }
 
         public IList<Group> Groups { get { return _groups; } }

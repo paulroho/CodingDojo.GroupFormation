@@ -50,7 +50,6 @@ namespace GroupForming.Tests
         }
 
         [TestMethod]
-        [Ignore]    // WIP
         public void Shuffle_WhenCalledA2ndTime_GivesADifferentResultsThanThe1stTime()
         {
             var members = _fixture.CreateMany("Member_", 2).ToList();
