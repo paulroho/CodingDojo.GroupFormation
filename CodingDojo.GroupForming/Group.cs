@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GroupForming
+namespace CodingDojo.GroupForming
 {
     public class Group
     {

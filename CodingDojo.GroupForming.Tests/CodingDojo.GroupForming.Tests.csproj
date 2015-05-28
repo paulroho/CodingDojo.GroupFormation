@@ -6,8 +6,8 @@
     <ProjectGuid>{369DC1BC-F1EE-4326-B227-4941664AC8FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GroupForming.Tests</RootNamespace>
-    <AssemblyName>GroupForming.Tests</AssemblyName>
+    <RootNamespace>CodingDojo.GroupForming.Tests</RootNamespace>
+    <AssemblyName>CodingDojo.GroupForming.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -69,9 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GroupForming\GroupForming.csproj">
+    <ProjectReference Include="..\CodingDojo.GroupForming\CodingDojo.GroupForming.csproj">
       <Project>{BB2D1863-901D-434E-96D0-1FF9AA7F3565}</Project>
-      <Name>GroupForming</Name>
+      <Name>CodingDojo.GroupForming</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

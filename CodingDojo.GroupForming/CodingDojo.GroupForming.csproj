@@ -7,8 +7,8 @@
     <ProjectGuid>{BB2D1863-901D-434E-96D0-1FF9AA7F3565}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GroupForming</RootNamespace>
-    <AssemblyName>GroupForming</AssemblyName>
+    <RootNamespace>CodingDojo.GroupForming</RootNamespace>
+    <AssemblyName>CodingDojo.GroupForming</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

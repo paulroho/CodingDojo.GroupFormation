@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupForming", "GroupForming\GroupForming.csproj", "{BB2D1863-901D-434E-96D0-1FF9AA7F3565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo.GroupForming", "CodingDojo.GroupForming\CodingDojo.GroupForming.csproj", "{BB2D1863-901D-434E-96D0-1FF9AA7F3565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupForming.Tests", "GroupForming.Tests\GroupForming.Tests.csproj", "{369DC1BC-F1EE-4326-B227-4941664AC8FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo.GroupForming.Tests", "CodingDojo.GroupForming.Tests\CodingDojo.GroupForming.Tests.csproj", "{369DC1BC-F1EE-4326-B227-4941664AC8FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

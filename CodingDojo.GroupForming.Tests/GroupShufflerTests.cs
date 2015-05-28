@@ -4,7 +4,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ploeh.AutoFixture;
 
-namespace GroupForming.Tests
+namespace CodingDojo.GroupForming.Tests
 {
     [TestClass]
     public class GroupShufflerTests

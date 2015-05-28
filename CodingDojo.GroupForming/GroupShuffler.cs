@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace GroupForming
+namespace CodingDojo.GroupForming
 {
     public class GroupShuffler
     {

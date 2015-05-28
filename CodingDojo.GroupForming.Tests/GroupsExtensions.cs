@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GroupForming.Tests
+namespace CodingDojo.GroupForming.Tests
 {
     public static class GroupsExtensions
     {
