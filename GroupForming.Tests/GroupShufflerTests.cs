@@ -10,44 +10,32 @@ namespace GroupForming.Tests
     {
         Fixture _fixture;
         GroupShuffler _shuffler;
-        string _member1;
-        string _member2;
-        string _member3;
-        string _member4;
 
         [TestInitialize]
         public void Setup()
         {
             _fixture = new Fixture();
             _shuffler = new GroupShuffler();
-            _member1 = _fixture.Create("Member1_");
-            _member2 = _fixture.Create("Member2_");
-            _member3 = _fixture.Create("Member3_");
-            _member4 = _fixture.Create("Member4_");
         }
 
         [TestMethod]
         public void Shuffle_WithMembersForJustOneGroup_GivesASingleGroupContainingAllMembers()
         {
-            _shuffler.AddMember(_member1);
-            _shuffler.AddMember(_member2);
+            var members = _fixture.CreateMany("Member_", 2).ToList();
+            _shuffler.AddMembers(members);
 
             // Act
             _shuffler.Shuffle();
 
-            _shuffler.Groups.ShouldAllBeEquivalentTo(new[]
-            {
-                new Group(_member1, _member2)
-            });
+            _shuffler.Groups.Should().HaveCount(1, "there should be a single group");
+            _shuffler.Groups[0].Members.ShouldAllBeEquivalentTo(members);
         }
 
         [TestMethod]
         public void Shuffle_WithMembersForTwoGroups_GivesTwoProperlySizedGroupsContainingAllMembers()
         {
-            _shuffler.AddMember(_member1);
-            _shuffler.AddMember(_member2);
-            _shuffler.AddMember(_member3);
-            _shuffler.AddMember(_member4);
+            var members = _fixture.CreateMany("Member_", 4).ToList();
+            _shuffler.AddMembers(members);
 
             // Act
             _shuffler.Shuffle();
@@ -55,8 +43,7 @@ namespace GroupForming.Tests
             _shuffler.Groups.Should().HaveCount(2, "there should be two groups");
             _shuffler.Groups.Should().OnlyContain(g => g.Members.Count() == 2, "every group should have 2 members");
 
-            _shuffler.Groups.AllMembersAggregated()
-                .ShouldAllBeEquivalentTo(new[] {_member1, _member2, _member3, _member4});
+            _shuffler.Groups.AllMembersAggregated().ShouldAllBeEquivalentTo(members);
         }
     }
 }
